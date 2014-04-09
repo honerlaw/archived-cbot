@@ -49,8 +49,12 @@ public class Bot extends Thread {
 	@Override
 	public void run() {
 		while(true) {
-			getBotClient().getApplet().getComponent(0).requestFocus();
-			getBotDisplay().draw();
+			try {
+				getBotClient().getApplet().getComponent(0).requestFocus();
+				getBotDisplay().draw();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 			try {
 				Thread.sleep(34);
 			} catch (InterruptedException e) {
